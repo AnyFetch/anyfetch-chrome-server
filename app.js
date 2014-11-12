@@ -26,5 +26,17 @@ server.use(middlewares.injectRedirect);
 
 require("./config/routes.js")(server, handlers);
 
+// Log errors
+server.on('uncaughtException', function(req, res, route, err) {
+
+
+  if(!res._headerSent) {
+    res.send(new restify.InternalServerError(err, err.message || 'unexpected error'));
+    return true;
+  }
+
+  return false;
+});
+
 module.exports = server;
 
