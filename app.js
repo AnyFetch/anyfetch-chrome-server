@@ -7,6 +7,7 @@ var restify = require('restify');
 var mongoose = require('mongoose');
 
 var config = require('./config/configuration.js');
+var logError = require('./config/services.js').logError;
 
 mongoose.connect(config.mongoUrl);
 
@@ -28,7 +29,10 @@ require("./config/routes.js")(server, handlers);
 
 // Log errors
 server.on('uncaughtException', function(req, res, route, err) {
-
+  logError(err, req, {
+    uncaughtRestifyException: true,
+    statusCode: req.statusCode,
+  });
 
   if(!res._headerSent) {
     res.send(new restify.InternalServerError(err, err.message || 'unexpected error'));
