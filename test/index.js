@@ -3,10 +3,6 @@
 var Anyfetch = require('anyfetch');
 var restify = require ('restify');
 
-var config = require('../config/configuration.js');
-
-var clearDB = require('mocha-mongoose')(config.mongoUrl);
-
 var MOCK_SERVER_TOKEN = "0d7d5dd28e615b2d31cf648df4a5a279e509945b";
 
 before(function setupServers() {
@@ -23,5 +19,3 @@ before(function setupServers() {
   });
   managerServer.listen(8001);
 });
-
-afterEach(clearDB);

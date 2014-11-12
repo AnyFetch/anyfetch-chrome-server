@@ -4,12 +4,9 @@
  */
 
 var restify = require('restify');
-var mongoose = require('mongoose');
 
-var config = require('./config/configuration.js');
 var logError = require('./config/services.js').logError;
 
-mongoose.connect(config.mongoUrl);
 
 var lib = require('./lib/');
 var handlers = lib.handlers;
