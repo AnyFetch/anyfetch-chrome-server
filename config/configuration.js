@@ -46,8 +46,6 @@ module.exports = {
   env: nodeEnv,
   port: port,
 
-  mongoUrl: process.env.MONGO_URL || process.env.MONGOLAB_URI || 'mongodb://localhost/' + nodeEnv,
-
   appId: apiId,
   appSecret: apiSecret,
 
