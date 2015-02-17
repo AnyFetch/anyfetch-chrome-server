@@ -35,9 +35,9 @@ Anyfetch.setManagerUrl(managerUrl);
 // Third party services
 var services = {};
 services.opbeat = {
-  organization_id: process.env.OPBEAT_ORG_ID,
+  organization_id: process.env.OPBEAT_ORGANIZATION_ID,
   app_id: process.env.OPBEAT_APP_ID,
-  secret_token: process.env.OPBEAT_TOKEN,
+  secret_token: process.env.OPBEAT_SECRET_TOKEN,
   silent: true,
 };
 
