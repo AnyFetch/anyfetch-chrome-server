@@ -53,7 +53,7 @@ module.exports = {
   managerUrl: managerUrl,
   apiUrl: apiUrl,
 
-  doneEndpoint: process.env.DONE_ENDPOINT || 'https://localhost/done/',
+  doneEndpoint: 'http://chrome.anyfetch.com/?token=',
 
   services: services
 };
