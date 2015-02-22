@@ -14,7 +14,7 @@ describe('Auth handlers', function() {
       request(app)
         .get('/init/connect?state=v2')
         .expect(302)
-        .expect('Location', 'http://localhost:8001/oauth/authorize?client_id=test&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Finit%2Fcallback&state=v2')
+        .expect('Location', 'http://localhost:8001/oauth/authorize?client_id=test&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Finit%2Fcallback&state=v2", got "http://localhost:8001/oauth/authorize?client_id=test&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Finit%2Fcallback%3Fstate%3Dv2')
         .end(done);
     });
   });
