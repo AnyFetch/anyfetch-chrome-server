@@ -35,9 +35,9 @@ Anyfetch.setManagerUrl(managerUrl);
 // Third party services
 var services = {};
 services.opbeat = {
-  organization_id: process.env.OPBEAT_ORGANIZATION_ID,
+  organization_id: process.env.OPBEAT_ORG_ID,
   app_id: process.env.OPBEAT_APP_ID,
-  secret_token: process.env.OPBEAT_SECRET_TOKEN,
+  secret_token: process.env.OPBEAT_TOKEN,
   silent: true,
 };
 
@@ -53,7 +53,8 @@ module.exports = {
   managerUrl: managerUrl,
   apiUrl: apiUrl,
 
-  doneEndpoint: 'http://chrome.anyfetch.com/?token=',
+  doneEndpoint: process.env.DONE_ENDPOINT || 'https://localhost/done/',
+  doneEndpointv2: 'http://chrome.anyfetch.com/?token=',
 
   services: services
 };
