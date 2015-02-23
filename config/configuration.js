@@ -17,8 +17,8 @@ dotenv.load();
 var nodeEnv = process.env.NODE_ENV || "development";
 var port = process.env.PORT || 8000;
 
-var managerUrl = process.env.MANAGER_URL || 'https://manager.anyfetch.com';
-var apiUrl = process.env.API_URL || 'https://api.anyfetch.com';
+var managerUrl = process.env.MANAGER_URL || 'https://manager-staging.anyfetch.com';
+var apiUrl = process.env.API_URL || 'https://api-staging.anyfetch.com';
 var apiId =  process.env.ANYFETCH_API_ID;
 var apiSecret = process.env.ANYFETCH_API_SECRET;
 
@@ -46,14 +46,20 @@ module.exports = {
   env: nodeEnv,
   port: port,
 
-  appId: apiId,
-  appSecret: apiSecret,
+  // STAGING
+  // appId: "5463ba1e70e0ff7e2aa1814c",
+  // appSecret: "7b705a1ba19cd82dc9e46b566501f029a14d25c9481864d25a27d1890e28dabb",
+
+  // My test app
+  appId: "54dcdf1a88df99f45040b86f",
+  appSecret: "6b939d1d6f4fce4e866283ca398d438a9a54e5af470d74577d989e71b98464b9",
 
   serverUrl: process.env.SERVER_URL || 'http://localhost:' + port,
   managerUrl: managerUrl,
   apiUrl: apiUrl,
 
-  doneEndpoint: 'http://chrome.anyfetch.com/?token=',
+  doneEndpoint: process.env.DONE_ENDPOINT || 'https://localhost/done/',
+  doneEndpointv2: 'http://chrome.anyfetch.com/?token=',
 
   services: services
 };
