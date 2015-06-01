@@ -53,5 +53,7 @@ module.exports = {
   managerUrl: managerUrl,
   apiUrl: apiUrl,
 
+  doneEndpoint: process.env.DONE_ENDPOINT || 'https://localhost/done/',
+
   services: services
 };
